@@ -180,8 +180,10 @@ public final class KoreanFilter extends TokenFilter {
     for(KoreanToken kt : values) {
        kt.setOutputs(outputs);
     }
-
-      morphQueue.addAll(map.values());
+    
+    final Collection<KoreanToken> sortedKoreanTokenCollection = map.values().stream()
+        .sorted(Comparator.comparingInt(KoreanToken::getOffset)).collect(Collectors.toList());
+    morphQueue.addAll(sortedKoreanTokenCollection);
   }
   
   /**
