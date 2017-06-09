@@ -17,27 +17,19 @@ package org.apache.lucene.analysis.ko;
  * limitations under the License.
  */
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.ko.morph.AnalysisOutput;
-import org.apache.lucene.analysis.ko.morph.CompoundEntry;
-import org.apache.lucene.analysis.ko.morph.MorphAnalyzer;
-import org.apache.lucene.analysis.ko.morph.MorphException;
-import org.apache.lucene.analysis.ko.morph.PatternConstants;
-import org.apache.lucene.analysis.ko.morph.WordEntry;
+import org.apache.lucene.analysis.ko.morph.*;
 import org.apache.lucene.analysis.ko.utils.DictionaryUtil;
 import org.apache.lucene.analysis.ko.utils.MorphUtil;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public final class KoreanFilter extends TokenFilter {
 
